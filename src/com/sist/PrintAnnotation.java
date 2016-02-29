@@ -1,7 +1,10 @@
 package com.sist;
 
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import java.lang.annotation.*;
 /**
  * Created by aaa on 2016-02-29.
  *   annotation
@@ -39,7 +42,14 @@ import java.lang.annotation.RetentionPolicy;
  *                -RUNTIME
  *                  -바이트 코드 파일까지 어노테이션 정보 유지함
  *                  -리플렉션을 이용해서 런타임에 어노테이션 정보를 얻을 수 있음
+ *
+ *         *Java Reflect란?
+ *              -리플렉션(REflection) : 런타임에 클래스의 메타 정보를 얻는 기능
+ *              -Java class의 이름을 이용하여 class를 메모리에 불러와서  class 객체 생성
+ *              -class의 method나 field를 이름 이용하여 획득한 다음, 함수 호출 또는 값 설정 및 획득
  */
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
 public @interface PrintAnnotation {
     String value() default "-";
     int number() default 15;
